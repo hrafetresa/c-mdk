@@ -37,8 +37,8 @@
             button1 = new Button();
             colorDialog1 = new ColorDialog();
             colorDialog2 = new ColorDialog();
-            linkLabel1 = new LinkLabel();
             linkLabel2 = new LinkLabel();
+            linkLabel1 = new LinkLabel();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)trackBar1).BeginInit();
             groupBox2.SuspendLayout();
@@ -133,19 +133,6 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
-            // linkLabel1
-            // 
-            linkLabel1.AutoSize = true;
-            linkLabel1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            linkLabel1.Location = new Point(24, 252);
-            linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(83, 30);
-            linkLabel1.TabIndex = 4;
-            linkLabel1.TabStop = true;
-            linkLabel1.Text = "Прямое\r\nнаправление";
-            linkLabel1.TextAlign = ContentAlignment.MiddleCenter;
-            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
-            // 
             // linkLabel2
             // 
             linkLabel2.AutoSize = true;
@@ -158,6 +145,19 @@
             linkLabel2.Text = "Обратное\r\nнаправление";
             linkLabel2.TextAlign = ContentAlignment.MiddleCenter;
             linkLabel2.LinkClicked += linkLabel2_LinkClicked;
+            // 
+            // linkLabel1
+            // 
+            linkLabel1.AutoSize = true;
+            linkLabel1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            linkLabel1.Location = new Point(24, 252);
+            linkLabel1.Name = "linkLabel1";
+            linkLabel1.Size = new Size(83, 30);
+            linkLabel1.TabIndex = 4;
+            linkLabel1.TabStop = true;
+            linkLabel1.Text = "Прямое\r\nнаправление";
+            linkLabel1.TextAlign = ContentAlignment.MiddleCenter;
+            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
             // 
             // Form2
             // 
@@ -193,7 +193,7 @@
         private Button button1;
         private ColorDialog colorDialog1;
         private ColorDialog colorDialog2;
-        private LinkLabel linkLabel1;
         private LinkLabel linkLabel2;
+        private LinkLabel linkLabel1;
     }
 }

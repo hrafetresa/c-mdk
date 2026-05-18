@@ -19,6 +19,8 @@ namespace _13
         SolidBrush brush2 = new SolidBrush(Color.Blue);
         Rectangle rc1 = new Rectangle(23, 292, 80, 80);
         Rectangle rc2 = new Rectangle(138, 292, 80, 80);
+
+
         public Form2()
         {
             InitializeComponent();
@@ -26,46 +28,15 @@ namespace _13
 
         private void Form2_Paint(object sender, PaintEventArgs e)
         {
-            Form1 mainForm = this.Owner as Form1;
-
-            if (mainForm.Shape == "квадрат")
-            {
-                e.Graphics.FillRectangle(brush1, rc1);
-                e.Graphics.FillRectangle(brush2, rc2);
-            }
-            if (mainForm.Shape == "круг")
-            {
-                e.Graphics.FillEllipse(brush1, rc1);
-                e.Graphics.FillEllipse(brush2, rc2);
-            }
-            if (mainForm.Shape == "ромб")
-            {
-
-                Point[] points1 = new Point[]{
-                new Point(rc1.X + 40, rc1.Y),
-                new Point(rc1.Right, rc1.Y + 40),
-                new Point(rc1.X + 40, rc1.Bottom),
-                new Point(rc1.X, rc1.Y + 40)
-                };
-
-
-                Point[] points2 = new Point[] {
-                new Point(rc2.X + 40, rc2.Y),
-                new Point(rc2.Right, rc2.Y + 40),
-                new Point(rc2.X + 40, rc2.Bottom),
-                new Point(rc2.X, rc2.Y + 40)
-                };
-
-                e.Graphics.FillPolygon(brush1, points1);
-                e.Graphics.FillPolygon(brush2, points2);
-            }
+            e.Graphics.FillEllipse(brush1, rc1);
+            e.Graphics.FillEllipse(brush2, rc2);
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            RadioButton radioButton = (RadioButton)sender;
-
             Form1 mainForm = this.Owner as Form1;
+
+            RadioButton radioButton = (RadioButton)sender;
 
             mainForm.Shape = radioButton.Text;
 

@@ -5,13 +5,14 @@ namespace _13
         int w = 80, h = 80;
         int x = 1, y = 100;
         int dx = 20;
+        bool isMovingForward = true;
 
         enum STATUS { DownLeft, RightBottom, UpRight, DownRight, LeftBottom, UpLeft };
         STATUS flag = STATUS.DownLeft;
         SolidBrush brush = new SolidBrush(Color.Red);
         Rectangle rc;
 
-        public string Shape { get; set; } = "квадрат";
+        public string Shape { get; set; } = "круг";
         public Color DirectColor { get; set; } = Color.Red;
         public Color ReverseColor { get; set; } = Color.Blue;
         public int MySpeed
@@ -29,7 +30,6 @@ namespace _13
         public Form1()
         {
             InitializeComponent();
-            timer1.Stop();
         }
 
 
@@ -37,8 +37,7 @@ namespace _13
         {
             this.Invalidate(rc, true);
 
-            bool isDirect = (flag == STATUS.DownLeft || flag == STATUS.RightBottom || flag == STATUS.UpRight);
-            brush.Color = isDirect ? DirectColor : ReverseColor;
+            brush.Color = isMovingForward ? DirectColor : ReverseColor;
 
             switch (flag)
             {
@@ -109,26 +108,7 @@ namespace _13
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
-            if (Shape == "квадрат")
-            {
-                e.Graphics.FillRectangle(brush, rc);
-            }
-            if (Shape == "круг")
-            {
-                e.Graphics.FillEllipse(brush, rc);
-            }
-            if (Shape == "ромб")
-            {
-
-                Point[] point = new Point[]{
-                new Point(rc.X + 40, rc.Y),
-                new Point(rc.Right, rc.Y + 40),
-                new Point(rc.X + 40, rc.Bottom),
-                new Point(rc.X, rc.Y + 40)
-                };
-
-                e.Graphics.FillPolygon(brush, point);
-            }
+            e.Graphics.FillEllipse(brush, rc);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -149,18 +129,11 @@ namespace _13
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (button1.Text == "Старт")
-            {
-                timer1.Start();
-                button1.Text = "Стоп";
-                button1.BackColor = Color.Red;
-            }
-            else if (button1.Text == "Стоп")
-            {
-                timer1.Stop();
-                button1.Text = "Старт";
-                button1.BackColor = Color.LightGreen;
-            }
+            timer1.Enabled = !timer1.Enabled;
+
+            button1.Text = timer1.Enabled ? "Стоп" : "Старт";
+            button1.BackColor = timer1.Enabled ? Color.Red : Color.LightGreen;
+
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
