@@ -134,9 +134,17 @@ namespace _13
         private void button2_Click(object sender, EventArgs e)
         {
             Form2 existingForm = Application.OpenForms.OfType<Form2>().FirstOrDefault();
-            Form2 form2 = new Form2();
-            form2.Owner = this;
-            form2.Show();
+            if (existingForm != null)
+            {
+                existingForm.BringToFront();
+                existingForm.Activate();
+            }
+            else
+            {
+                Form2 form2 = new Form2();
+                form2.Owner = this;
+                form2.Show();
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)

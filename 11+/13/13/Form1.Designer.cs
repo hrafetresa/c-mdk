@@ -64,7 +64,7 @@
             // timer1
             // 
             timer1.Enabled = true;
-            timer1.Interval = 10;
+            timer1.Interval = 20;
             timer1.Tick += timer1_Tick;
             // 
             // Form1
@@ -74,6 +74,7 @@
             ClientSize = new Size(546, 457);
             Controls.Add(button2);
             Controls.Add(button1);
+            DoubleBuffered = true;
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
